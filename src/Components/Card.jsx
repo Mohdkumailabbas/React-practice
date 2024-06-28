@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-function Card() {
-  const [val, setval] = useState({ name: "Card", isbanned: false });
-
-  return (
-    <>
-      <h1 className="px-2">{val.name}</h1>
-      <h1 className="px-2">{val.isbanned.toString()}</h1>
-      <button
-        onClick={() => setval({ ...val, isbanned: !val.isbanned })}
-        className={`px-2 py-3 ${
-          val.isbanned ? "bg-blue-800" : "bg-red-300"
-        } rounded-md`}
-      >
-        chnge
-      </button>
-    </>
-  );
+import React, { useState } from 'react';
+function Card(){
+  const [val,setval]= useState([
+    {name:"kum",age:32},
+    {name:"um",age:33},
+    {name:"m",age:52} 
+  ])
+   return(
+   <>
+     {val.map((elem)=>(
+       <div>
+         <h1>{elem.name}</h1>
+         <h1>{elem.age}</h1>
+       </div>
+     ))}
+   </>
+   )
 }
 export default Card;
-// const handelclick=()=>{
-//   setval(prevval =>({...prevval,age:prevval.age+1}))
-//  }
+// {/* <button onClick={() => setval(val.filter((elem, index) => index!==2))}>click</button> */}
+// <button onClick={() => setval(val.filter((elem, index) => index !== val.length - 1))}>click</button>
+// /* <button onClick={()=>setval(()=>val.filter((item=> item%2!==0)))}> check</button> */}
+// <button onClick={()=>setval(()=>val.map(item=> item.name=== "um"?({name:"um",age:7}):item))}>add</button>
