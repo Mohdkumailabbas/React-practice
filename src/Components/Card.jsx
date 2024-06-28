@@ -1,23 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 function Card(){
-  const data =[
-    {name :"Mahiya Ve",description:"three points and  three points"},
-    {name :"Junun",description:"tcfv vrvr vrvrvrv"},
-    {name :"Barish",description:"tvrvr rvrv  rv three points"},
-  ]
-  const handleclick= function(){
-    alert("hehehahaha");
-  }
+   const [val,setval]= useState({name:"card",isbannned:false});
+  //  const handlechange=function(){}
   return(
-    <div className='w-full h-screen bg-zinc-300 flex flex-col gap-10 items-center justify-center'> 
-     {data.map((elem,index)=>(
-      <div className='px-3 py-2 w-60 bg-zinc-100 '>
-      <h3 className='font-semibold text-xl'>{elem.name}</h3>
-      <p className='text-sm mt-2'>{elem.description}</p>
-      <button onClick={handleclick} className='bg-blue-400 px-2 mt-1 rounded-md text-white'>Download Now...</button>
-     </div>
-     ))}
-    </div>
+    <>
+    <h1 className='px-2 '> Name {val.name}</h1>
+    <h1 className='px-2'>bannned: {val.isbannned.toString()}</h1>
+   <button  onClick={() => setval({ ...val, isbannned: !val.isbannned})} className='bg-blue-400 rounded-md px-2 py-3'>Change</button>
+    </>
+
   )
 }
 export default Card;
+    /* <button onClick={()=>setval((prev)=>prev+1)} className='bg-blue-400 rounded px-2 py-3'>change</button> */
