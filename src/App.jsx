@@ -3,7 +3,9 @@ import Card from "./Components/Card";
 function   App(){
     return (
         <div>
-            <Card/>
+            <Card chacha ="12" />
+            <Card chacha="13"/>
+
         </div>
     );
 }
