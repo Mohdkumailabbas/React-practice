@@ -1,18 +1,16 @@
-import React from "react";
-function Card ({data ,handleclick,index}){
-const{name,artist,img,added}=data;
+import React,  { useState } from "react";
+function Card (){
+  const [val,setval]=useState({name:""},{email:""})
+
 
  return(
-    <div className=" mt-10 w-60 bg-white p-4 flex gap-4 pb-12 rounded-md relative">
-     <div className="w-20 h-20 rounded-md overflow-hidden">
-      <img className="w-full h-full object-cover" src={img} alt="" />
-     </div>
-     <div className="">
-      <h1 className="font-semibold tesxt-xl leading-none capitalize">{name}</h1>
-      <h1 className="text-sm capitalize">{artist}</h1>
-     </div>
-      <button onClick={()=>handleclick(index)} className={`px-4 py-3 ${added===true ? " bg-orange-600" : "bg-teal-600"} absolute text-xs rounded-full -bottom-5 left-20 -translate-x-[50%]-translate-y-[50%] whitespace-nowrap`}>{added=== true ? "added" : "Add to Favourites"}</button>
-    </div>
+     <div className= "h-screen w-full bg-zinc-100">
+          <form action="">
+            <input onChange={(event)=>setval({...val,name:event.target.value})} type="text" placeholder='name' id="" />
+            <input onChange={(event)=>setval({...val,email:event.target.value})} type="email" placeholder='email' id="" />
+          </form>  
+        </div>
+  
   )
 }
 
