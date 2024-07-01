@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { Link,Routes,Route } from 'react-router-dom';
-import Home from './Components/Home';
-import About from './Components/About';
-import User from './Components/User';
-import Nav from './Components/Nav';
-import Routing from '../utils/Routing';
-function App() {
-
+import axios from 'axios';
+const App=()=> {
+  const productkey=()=>{
+    const api="https://fakestoreapi.com/products";
+     axios
+      .get(api)
+      .then((data)=>{
+        console.log(data)
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+  }
 
   return (
     <>
-      <Nav/>
-      <Routing/>
+      <button onClick={()=>productkey()}> CALL</button>
     </>
   )
 }
